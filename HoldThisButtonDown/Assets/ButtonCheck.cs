@@ -14,7 +14,7 @@ public class ButtonCheck : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         TimerController.instance.BeginTimer();
-        
+        LeaderBoardController.instance.ShowScores();
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -23,6 +23,7 @@ public class ButtonCheck : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         TimerController.instance.EndTimer();
         LeaderBoardController.instance.SubmitScore(TimerController.instance.getTimePlaying());
         LeaderBoardController.instance.ShowScores();
+       
     }
     
     

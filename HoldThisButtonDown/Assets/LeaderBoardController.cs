@@ -8,6 +8,7 @@ public class LeaderBoardController : MonoBehaviour
     public static LeaderBoardController instance;
     public InputField MemberID, PlayerScore;
     public int ID;
+    public string memberID;
     int MaxScores = 5;
     public Text[] Entries;
     private string truncName;
@@ -58,7 +59,7 @@ public class LeaderBoardController : MonoBehaviour
     }
     public void SubmitScore(int timePlaying)
     {
-        LootLockerSDKManager.SubmitScore(MemberID.text, timePlaying, ID, (response) =>
+        LootLockerSDKManager.SubmitScore(memberID, timePlaying, ID, (response) =>
         {
             if (response.success)
             {
@@ -69,5 +70,9 @@ public class LeaderBoardController : MonoBehaviour
                 Debug.Log("Failed");
             }
         });
+    }
+    public void setMemberID(string memberID)
+    {
+        this.memberID = memberID;
     }
 }
