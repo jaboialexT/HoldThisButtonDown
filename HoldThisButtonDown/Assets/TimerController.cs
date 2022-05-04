@@ -8,7 +8,7 @@ public class TimerController : MonoBehaviour
 {
     public static TimerController instance;
     public Text timeCounter;
-
+    public int timePlayingInt;
     private TimeSpan timePlaying;
     private bool timerGoing;
 
@@ -43,11 +43,17 @@ public class TimerController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(elapsedTime);
+            timePlayingInt = (int) Math.Round(timePlaying.TotalSeconds,MidpointRounding.AwayFromZero);
             string timePlayingStr = timePlaying.ToString("d'.'hh':'mm':'ss'.'ff");
             timeCounter.text = timePlayingStr;
 
             yield return null;
         }
+    }
+    public int getTimePlaying()
+    {
+            return timePlayingInt;
+        
     }
 
 }
