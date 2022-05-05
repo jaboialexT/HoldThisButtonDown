@@ -9,7 +9,7 @@ public class LeaderBoardController : MonoBehaviour
     public InputField MemberID, PlayerScore;
     public int ID;
     public string memberID;
-    int MaxScores = 5;
+    int MaxScores = 7;
     public Text[] Entries;
     private string truncName;
 
